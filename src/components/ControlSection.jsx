@@ -2,10 +2,10 @@ import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../translations';
 import TiltedCard from './TiltedCard';
-
 const ControlSection = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const baseUrl = import.meta.env.BASE_URL;
 
   return (
     <section className="relative w-full max-w-full py-20 overflow-x-hidden">
@@ -14,7 +14,7 @@ const ControlSection = () => {
           {/* 左侧图片 */}
           <div className="relative flex justify-center">
             <TiltedCard
-              imageSrc="/5.png"
+              imageSrc={`${baseUrl}5.png`}
               altText="Mobile app control interface"
               captionText="Mobile app control interface"
               containerHeight="693px"

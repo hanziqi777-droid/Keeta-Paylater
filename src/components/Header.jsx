@@ -12,6 +12,7 @@ import {
 const Header = () => {
   const { language, setLanguage } = useLanguage();
   const t = translations[language];
+  const baseUrl = import.meta.env.BASE_URL;
 
   return (
     <header className="relative bg-white" style={{ overflow: 'visible' }}>
@@ -35,7 +36,7 @@ const Header = () => {
         {/* Logo */}
         <div className="w-[140px] h-[33px] flex items-center flex-shrink-0">
           <img 
-            src="/7.png" 
+            src={`${baseUrl}7.png`} 
             alt="Keeta Credito Logo" 
             className="mx-auto object-cover max-w-full"
           />

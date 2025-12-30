@@ -6,6 +6,7 @@ import BlurText from './BlurText';
 const HeroSection = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const baseUrl = import.meta.env.BASE_URL;
 
   const handleAnimationComplete = () => {
     console.log('Animation completed!');
@@ -15,7 +16,7 @@ const HeroSection = () => {
     <section className="relative w-full max-w-full h-[632px] bg-[#989898] overflow-hidden">
       {/* 背景图片 */}
       <img 
-        src="/1.png" 
+        src={`${baseUrl}1.png`} 
         alt="Restaurant background" 
         className="absolute inset-0 w-full h-full object-cover z-0"
         onError={(e) => {
@@ -25,7 +26,7 @@ const HeroSection = () => {
       
       {/* 视频背景 */}
       <video
-        src="/1.mp4"
+        src={`${baseUrl}1.mp4`}
         className="absolute inset-0 w-full h-full object-cover z-[1]"
         autoPlay
         loop

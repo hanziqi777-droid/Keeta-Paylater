@@ -5,27 +5,28 @@ import { translations } from '../translations';
 const FeatureCards = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const baseUrl = import.meta.env.BASE_URL;
 
   const features = [
     {
       id: 1,
       title: t.payOverThreeMonths,
       description: t.payOverThreeMonthsDesc,
-      image: "/2.png",
+      image: `${baseUrl}2.png`,
       position: { left: 122, top: 746 }
     },
     {
       id: 2,
       title: t.securePayments,
       description: t.securePaymentsDesc,
-      image: "/3.png",
+      image: `${baseUrl}3.png`,
       position: { left: 536, top: 746 }
     },
     {
       id: 3,
       title: t.seeWhatYouCanSpend,
       description: t.seeWhatYouCanSpendDesc,
-      image: "/4.png",
+      image: `${baseUrl}4.png`,
       position: { left: 950, top: 746 }
     }
   ];

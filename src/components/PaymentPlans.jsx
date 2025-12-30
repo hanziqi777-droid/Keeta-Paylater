@@ -6,12 +6,13 @@ import { translations } from '../translations';
 const PaymentPlans = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const baseUrl = import.meta.env.BASE_URL;
   const [selectedPlan, setSelectedPlan] = useState('monthly'); // 默认选中 Monthly plans
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // 轮播图片索引
 
   // 轮播图片数组
-  const monthlyImages = ['/6.1.png', '/6.2.png'];
-  const allImages = ['/6.1.png', '/6.2.png', '/6.3.png'];
+  const monthlyImages = [`${baseUrl}6.1.png`, `${baseUrl}6.2.png`];
+  const allImages = [`${baseUrl}6.1.png`, `${baseUrl}6.2.png`, `${baseUrl}6.3.png`];
 
   // 预加载所有图片
   useEffect(() => {
@@ -40,9 +41,9 @@ const PaymentPlans = () => {
     if (selectedPlan === 'monthly') {
       return monthlyImages[currentImageIndex];
     } else {
-      return '/6.3.png';
+      return `${baseUrl}6.3.png`;
     }
-  }, [selectedPlan, currentImageIndex, monthlyImages]);
+  }, [selectedPlan, currentImageIndex, monthlyImages, baseUrl]);
 
   // 处理按钮点击事件
   const handlePlanChange = (plan) => {
