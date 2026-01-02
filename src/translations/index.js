@@ -31,6 +31,11 @@ export const translations = {
     
     // Footer
     copyright: "© 2025 Keeta crédito",
+    
+    // How to Use Page
+    activateKeetaCredito: "Activate Keeta Crédito",
+    selectKeetaCreditoPay: "Select Keeta Crédito & Pay",
+    repayInKeetaCredito: "Repay in Keeta Crédito",
   },
   pt: {
     // Header
@@ -64,6 +69,11 @@ export const translations = {
     
     // Footer
     copyright: "© 2025 Keeta crédito",
+    
+    // How to Use Page
+    activateKeetaCredito: "Ativar Keeta Crédito",
+    selectKeetaCreditoPay: "Selecionar Keeta Crédito e Pagar",
+    repayInKeetaCredito: "Reembolsar no Keeta Crédito",
   },
 };
 
