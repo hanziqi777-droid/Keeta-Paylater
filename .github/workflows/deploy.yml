@@ -48,7 +48,15 @@ jobs:
         echo "Building with GITHUB_PAGES=$GITHUB_PAGES"
         npm run build
         echo "Build completed successfully"
+        echo "Build directory contents:"
         ls -la build/
+        echo "Checking index.html exists:"
+        test -f build/index.html && echo "✓ index.html exists" || echo "✗ index.html missing"
+        echo "Checking assets directory:"
+        ls -la build/assets/ || echo "No assets directory"
+        # 创建 .nojekyll 文件以确保 GitHub Pages 正确处理所有文件
+        touch build/.nojekyll
+        echo "Created .nojekyll file"
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
@@ -56,3 +64,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
+        keep_files: false
+        force_orphan: false
