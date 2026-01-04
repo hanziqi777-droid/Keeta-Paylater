@@ -11,11 +11,14 @@ import react from '@vitejs/plugin-react';
 
 const CHAT_VARIABLE = process.env.CHAT_VARIABLE || '';
 const PUBLIC_PATH = process.env.PUBLIC_PATH || '';
+// 如果是在 GitHub Pages 环境且 PUBLIC_PATH 为空，使用仓库名作为 base
+const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+const defaultBase = isGitHubPages && !PUBLIC_PATH ? '/Keeta-Paylater/' : (PUBLIC_PATH || '/');
 
 const isProdEnv = process.env.NODE_ENV === 'production';
 const publicPath = (isProdEnv && CHAT_VARIABLE)
-  ? PUBLIC_PATH + '/' + CHAT_VARIABLE
-  : PUBLIC_PATH + '/';
+  ? (PUBLIC_PATH || '/') + CHAT_VARIABLE + '/'
+  : defaultBase;
 const outDir = (isProdEnv && CHAT_VARIABLE) ? 'build/' + CHAT_VARIABLE : 'build';
 
 async function loadPlugins() {
