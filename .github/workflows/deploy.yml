@@ -21,13 +21,13 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18'
-        cache: 'yarn'
+        cache: 'npm'
 
     - name: Install dependencies
-      run: yarn install
+      run: npm ci
 
     - name: Build project
-      run: GITHUB_PAGES=true yarn build
+      run: GITHUB_PAGES=true npm run build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
